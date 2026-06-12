@@ -15,10 +15,12 @@ npm run test:detect-async-leaks
 
 ### happy-dom-timeouts.test.ts
 
-This test uses the `setTimeout` and `setInterval` functions of happy-dom. It will wait for the built in `close()` function from happy-dom.
+This test uses the `setTimeout` and `setInterval` functions of happy-dom.
+
+It will wait for the built in `close()` function from happy-dom. The default teardown using `abort()` should be sufficient for this use case, but for some reason it's not.
 
 ### default-timeouts.test.ts
 
 This test uses the default Vitest `setTimeout` and `setInterval` functions.
 
-Vitest will wait for the happy-dom function `abort()` and then call window.close() (doesn't return a promise) during teardown. This will not wait for the environment to fully close. `abort()` should be sufficient for this use case, but for some reason it's not.
+Vitest will wait for the happy-dom function `abort()` and then call window.close() (doesn't return a promise) during teardown. This will not wait for the environment to fully close.
