@@ -11,6 +11,8 @@ npm run test:detect-async-leaks
 
 # What is tested?
 
+npm run test:detect-async-leaks will run two tests and try to detect async leaks in both of them. It's expected that only the default timeout tests leaks.
+
 ### happy-dom-timeouts.test.ts
 
 This test uses the `setTimeout` and `clearTimeout` functions of happy-dom. It will wait for the built in `close()` function from happy-dom.
